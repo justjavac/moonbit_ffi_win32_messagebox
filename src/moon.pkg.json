@@ -1,0 +1,21 @@
+{
+  "is-main": true,
+  "import": [
+    "justjavac/ffi",
+    "moonbitlang/x/encoding"
+  ],
+  "supported-targets": [
+    "native"
+  ],
+  "targets": {
+    "main.mbt": [
+      "native"
+    ]
+  },
+  "link": {
+    "native": {
+      "cc-flags": "",
+      "cc-link-flags": "user32.lib /DEBUG"
+    }
+  }
+}
