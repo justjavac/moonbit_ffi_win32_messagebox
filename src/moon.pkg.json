@@ -1,8 +1,7 @@
 {
   "is-main": true,
   "import": [
-    "justjavac/ffi",
-    "moonbitlang/x/encoding"
+    "justjavac/ffi"
   ],
   "supported-targets": [
     "native"
