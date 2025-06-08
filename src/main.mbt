@@ -21,8 +21,8 @@ fn main {
   let text = "Hello World\n你好，世界\nこんにちは世界\nBonjour le monde\nمرحبا بالعالم\u{0}"
   let msg_id = message_box(
     0,
-    @encoding.encode(UTF16, text),
-    @encoding.encode(UTF16, caption),
+    @ffi.to_wstr(text),
+    @ffi.to_wstr(caption),
     0x00000000,
   )
   if msg_id == 0 {
