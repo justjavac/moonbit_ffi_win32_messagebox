@@ -2,8 +2,7 @@
   "name": "justjavac/win32_messagebox",
   "version": "0.1.0",
   "deps": {
-    "justjavac/ffi": "0.1.5",
-    "moonbitlang/x": "0.4.28"
+    "justjavac/ffi": "0.1.6"
   },
   "readme": "README.md",
   "repository": "",
