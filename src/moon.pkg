@@ -1,0 +1,10 @@
+import {
+  "justjavac/ffi",
+}
+
+options(
+  "is-main": true,
+  link: { "native": { "cc-flags": "", "cc-link-flags": "user32.lib /DEBUG" } },
+  "supported-targets": "+native",
+  targets: { "main.mbt": [ "native" ] },
+)
