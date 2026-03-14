@@ -63,7 +63,8 @@
 /// - **UTF-16 encoding**: Requires proper wide string conversion
 /// - **User32.dll**: Uses the standard Windows User32 library
 
-///| FFI binding to Windows MessageBoxW API function.
+///|
+/// FFI binding to Windows MessageBoxW API function.
 /// 
 /// This function displays a modal dialog box that contains a system icon,
 /// a set of buttons, and a brief application-specific message. The user
@@ -104,12 +105,12 @@
 /// 
 /// ## Example
 /// 
-/// ```moonbit
+/// ```moonbit nocheck
 /// let result = message_box(0,
 ///   @ffi.to_wstr("Save changes before closing?"),
 ///   @ffi.to_wstr("Unsaved Changes"),
 ///   0x00000023)  // MB_ICONQUESTION | MB_YESNOCANCEL
-/// 
+///
 /// match result {
 ///   1 => println("User clicked OK")
 ///   2 => println("User clicked Cancel")
@@ -126,14 +127,16 @@
 /// - String parameters must be converted to UTF-16 using `@ffi.to_wstr()`
 /// - The message box is modal and blocks execution until user interaction
 /// - Use `0` for hWnd to create a system modal dialog
+#borrow(lpText, lpCaption)
 pub extern "C" fn message_box(
   hWnd : Int,
   lpText : Bytes,
   lpCaption : Bytes,
-  uType : Int
+  uType : Int,
 ) -> Int = "MessageBoxW"
 
-///| Main function demonstrating Win32 message box usage.
+///|
+/// Main function demonstrating Win32 message box usage.
 /// 
 /// This function serves as a demonstration of how to use the `message_box`
 /// FFI binding to display a Windows message box with multilingual text.
