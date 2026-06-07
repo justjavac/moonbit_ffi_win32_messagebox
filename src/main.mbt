@@ -185,3 +185,9 @@ fn main {
     println("Message box displayed successfully.")
   }
 }
+
+///|
+test "wide string conversion" {
+  let bytes = @ffi.to_wstr("MoonBit")
+  assert_true(bytes.length() > 0)
+}
