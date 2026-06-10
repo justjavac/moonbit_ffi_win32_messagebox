@@ -1,20 +1,20 @@
 name = "justjavac/win32_messagebox"
 
-version = "0.1.2"
+version = "0.1.3"
 
 import {
-  "justjavac/ffi@0.2.2",
+  "justjavac/ffi@0.2.3",
 }
 
 readme = "README.md"
 
-repository = ""
+repository = "https://github.com/justjavac/moonbit_ffi_win32_messagebox"
 
 license = "MIT"
 
-keywords = [ ]
+keywords = [ "ffi", "win32", "messagebox", "windows" ]
 
-description = ""
+description = "A MoonBit FFI demo for calling the Win32 MessageBoxW API."
 
 preferred_target = "native"
 
