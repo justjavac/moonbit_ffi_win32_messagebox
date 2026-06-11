@@ -1,0 +1,44 @@
+name: ci
+
+on: [push, pull_request]
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: install
+        run: |
+          Set-ExecutionPolicy RemoteSigned -Scope CurrentUser; irm https://cli.moonbitlang.com/install/powershell.ps1 | iex
+          "C:\Users\runneradmin\.moon\bin" | Out-File -FilePath $env:GITHUB_PATH -Append
+
+      - name: moon version
+        run: moon version --all
+
+      - name: moon update
+        run: moon update
+
+      - name: moon info
+        run: |
+          moon info --target native
+          git diff --exit-code
+
+      - name: moon check
+        run: moon check --target native --deny-warn
+
+      - name: format check
+        run: moon fmt --check
+
+      - name: Generate coverage report
+        run: |
+          moon coverage clean
+          moon test --target native --enable-coverage
+          moon coverage analyze -p justjavac/win32_messagebox -- -f cobertura -o coverage.xml
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          files: coverage.xml
+          name: windows
+          disable_search: true

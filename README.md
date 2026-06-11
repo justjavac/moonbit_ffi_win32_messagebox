@@ -1,5 +1,8 @@
 # win32_messagebox
 
+[![ci](https://github.com/justjavac/moonbit_ffi_win32_messagebox/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/justjavac/moonbit_ffi_win32_messagebox/actions/workflows/ci.yml)
+[![coverage](https://img.shields.io/codecov/c/github/justjavac/moonbit_ffi_win32_messagebox/main?label=coverage)](https://codecov.io/gh/justjavac/moonbit_ffi_win32_messagebox)
+
 A MoonBit native FFI demo for calling the Windows `MessageBoxW` API.
 
 ![moonbit message box](moonbit-win-message-box.png)
